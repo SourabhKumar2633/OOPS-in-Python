@@ -78,6 +78,8 @@
 	  def display(self):
 		print(self.name)
 		print(self.idnumber)
+
+ 
 		
 	  def details(self):
 		print("My name is {}".format(self.name))
@@ -158,5 +160,96 @@
       - There are many types of birds.
       - Ostriches cannot fly.
 
+ ## Python Encapsulation
+  - OOPs restrict direct access to its methods and variables by encapsulating the code and data together.
+  - Encapsulation is one of the fundamental concepts in object-oriented programming (OOP). It describes the idea of wrapping data and the methods that work on data within one unit.
+  -  This puts restrictions on accessing variables and methods directly and can prevent the accidental modification of data. To prevent accidental change, an object’s variable can only be changed by an object’s method. Those types of variables are known as private variables.
+  -  A class is an example of encapsulation as it encapsulates all the data that is member functions, variables, etc
+
+  - ![image](https://github.com/SourabhKumar2633/OOPS-in-Python/assets/146738264/23adb496-b1bc-4869-aaa4-524c69af6356)
+
+        # Python program to
+        # demonstrate private members
+
+        # Creating a Base class
+        class Base:
+	    def __init__(self):
+		self.a = "GeeksforGeeks"
+		self.__c = "GeeksforGeeks"
+
+        # Creating a derived class
+        class Derived(Base):
+	    def __init__(self):
+
+		# Calling constructor of
+		# Base class
+		Base.__init__(self)
+		print("Calling private member of base class: ")
+		print(self.__c)
+
+
+        # Driver code
+        obj1 = Base()
+        print(obj1.a)
+
+        # Uncommenting print(obj1.c) will
+        # raise an AttributeError
+
+        # Uncommenting obj2 = Derived() will
+        # also raise an AtrributeError as
+        # private member of base class
+        # is called inside derived class
+
+ ## DATA ABSTRUCTION
+ - It hides unnecessary code details from the user. Also,  when we do not want to give out sensitive parts of our code implementation and this is where data abstraction came.
+ - Data Abstraction in Python can be achieved by creating abstract classes.
+
+       class MyClass: 
+
+       # Hidden member of MyClass 
+       __hiddenVariable = 0
+	
+	   # A member method that changes 
+	   # __hiddenVariable 
+	   def add(self, increment): 
+		self.__hiddenVariable += increment 
+		print (self.__hiddenVariable) 
+
+       # Driver code 
+       myObject = MyClass()	 
+       myObject.add(2) 
+       myObject.add(5) 
+
+       # This line causes error 
+       print (myObject.__hiddenVariable) 
+ - Output
+   
+       2
+       7
+       Traceback (most recent call last):
+       File "filename.py", line 13, in 
+       print (myObject.__hiddenVariable)
+       AttributeError: MyClass instance has 
+       no attribute '__hiddenVariable'
+
+   - We can access the value of a hidden attribute by a tricky syntax:
+
+         # A Python program to demonstrate that hidden 
+         # members can be accessed outside a class 
+         class MyClass: 
+
+	     # Hidden member of MyClass 
+	     __hiddenVariable = 10
+
+         # Driver code 
+         myObject = MyClass()	 
+         print(myObject._MyClass__hiddenVariable)
+
+     - Output
+
+           10
+
+   
+ 
  
  
